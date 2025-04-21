@@ -4,6 +4,7 @@ export default [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
+
   {
     ignores: ['**/dist'],
   },
@@ -20,6 +21,20 @@ export default [
               sourceTag: '*',
               onlyDependOnLibsWithTags: ['*'],
             },
+          ],
+        },
+      ],
+      '@angular-eslint/component-class-suffix': [
+        'error',
+        {
+          suffixes: [
+            'Page',
+            'Dialog',
+            'Service',
+            'Enum',
+            'Interface',
+            'Component',
+            'Layout',
           ],
         },
       ],

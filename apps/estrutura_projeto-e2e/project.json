@@ -1,0 +1,10 @@
+{
+  "name": "estrutura_projeto-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/estrutura_projeto-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["estrutura_projeto"],
+  "// targets": "to see all targets run: nx show project estrutura_projeto-e2e --web",
+  "targets": {}
+}

@@ -1,0 +1,72 @@
+@use '@angular/material' as mat;
+
+// Importar apenas um tema pré-construído para garantir compatibilidade
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+// Tema escuro
+.dark-theme {
+  // Estilo básico
+  background-color: #303030;
+  color: white;
+
+  // Estilos específicos para componentes
+  .mat-toolbar.mat-primary {
+    background-color: #1565c0;
+  }
+}
+
+// Tema claro (padrão)
+.light-theme {
+  // Estilo básico
+  background-color: #fafafa;
+  color: rgba(0, 0, 0, 0.87);
+
+  // Estilos específicos para componentes
+  .mat-toolbar.mat-primary {
+    background-color: #2196f3;
+  }
+}
+
+// Estilos globais
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+// Espaçamento para toolbar
+.spacer {
+  flex: 1 1 auto;
+}
+
+// Acessibilidade - tamanho da fonte
+html {
+  &.font-size-small {
+    font-size: 87.5%; // 14px
+  }
+  &.font-size-normal {
+    font-size: 100%; // 16px
+  }
+  &.font-size-large {
+    font-size: 112.5%; // 18px
+  }
+  &.font-size-xlarge {
+    font-size: 125%; // 20px
+  }
+}
+
+// Estilos de utilidade
+.mat-typography {
+  line-height: 1.5;
+}
+
+// Estilos de impressão
+@media print {
+  .no-print {
+    display: none !important;
+  }
+} 

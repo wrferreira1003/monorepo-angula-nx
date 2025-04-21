@@ -1,0 +1,101 @@
+// EXEMPLO: Configuração correta para usar o serviço de tema da biblioteca feature-layout/theme
+
+// 1. No arquivo tsconfig.json do app, adicione o path para a biblioteca
+/*
+{
+  "compilerOptions": {
+    "paths": {
+      "@workspace/feature-layout/theme": ["libs/feature-layout/theme/src/index.ts"]
+    }
+  }
+}
+*/
+
+// 2. No arquivo styles.scss, importe o tema principal
+/*
+@import 'libs/feature-layout/theme/src/lib/styles/theme-main.scss';
+*/
+
+// 3. No app.config.ts, importe o ThemeModule
+/*
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { appRoutes } from './app.routes';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { ThemeModule } from '@workspace/feature-layout/theme';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(appRoutes),
+    provideAnimations(),
+    importProvidersFrom(ThemeModule),
+  ],
+};
+*/
+
+// 4. No app.component.ts, use os componentes de tema
+/*
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { NxWelcomeComponent } from './nx-welcome.component';
+import { ThemeService, ThemeToggleComponent, ThemeSettingsComponent } from '@workspace/feature-layout/theme';
+
+@Component({
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatToolbarModule,
+    NxWelcomeComponent,
+    ThemeToggleComponent,
+    ThemeSettingsComponent
+  ],
+  selector: 'app-root',
+  template: `
+    <mat-toolbar color="primary">
+      <span>{{ title }}</span>
+      <span class="spacer"></span>
+      <lib-theme-toggle></lib-theme-toggle>
+    </mat-toolbar>
+
+    <div class="content">
+      <app-nx-welcome></app-nx-welcome>
+      
+      <div class="theme-settings-container" *ngIf="showSettings">
+        <lib-theme-settings></lib-theme-settings>
+      </div>
+      
+      <button mat-button (click)="showSettings = !showSettings">
+        {{ showSettings ? 'Esconder' : 'Mostrar' }} Configurações de Tema
+      </button>
+      
+      <router-outlet></router-outlet>
+    </div>
+  `,
+  styles: [`
+    .spacer {
+      flex: 1 1 auto;
+    }
+    
+    .content {
+      padding: 16px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    
+    .theme-settings-container {
+      margin: 20px 0;
+      max-width: 500px;
+    }
+  `]
+})
+export class AppComponent {
+  title = 'projetos-angular-monorepo';
+  showSettings = false;
+  
+  constructor(private themeService: ThemeService) {}
+}
+*/ 
