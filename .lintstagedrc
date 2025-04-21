@@ -1,4 +1,4 @@
 {
-    "*.ts": ["eslint --fix", "prettier --write"],
-    "*.html": ["prettier --write"]
+  "*.ts": ["npx eslint --fix --config ./eslint.config.mjs"],
+  "*.html": ["prettier --write"]
 }

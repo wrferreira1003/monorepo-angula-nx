@@ -24,6 +24,13 @@ export default [
           style: 'kebab-case',
         },
       ],
+      // Adicione a regra de sufixo de componente aqui
+      '@angular-eslint/component-class-suffix': [
+        'error',
+        {
+          suffixes: ['Page', 'Dialog', 'Service', 'Enum', 'Interface', 'Component'],
+        },
+      ],
     },
   },
   {

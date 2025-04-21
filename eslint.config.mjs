@@ -1,10 +1,11 @@
 import nx from '@nx/eslint-plugin';
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
 
 export default [
   ...nx.configs['flat/base'],
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
-
+  eslintPluginPrettierRecommended,
   {
     ignores: ['**/dist'],
   },
@@ -27,30 +28,13 @@ export default [
       '@angular-eslint/component-class-suffix': [
         'error',
         {
-          suffixes: [
-            'Page',
-            'Dialog',
-            'Service',
-            'Enum',
-            'Interface',
-            'Component',
-            'Layout',
-          ],
+          suffixes: ['Page', 'Dialog', 'Service', 'Enum', 'Interface', 'Component', 'Layout'],
         },
       ],
     },
   },
   {
-    files: [
-      '**/*.ts',
-      '**/*.tsx',
-      '**/*.cts',
-      '**/*.mts',
-      '**/*.js',
-      '**/*.jsx',
-      '**/*.cjs',
-      '**/*.mjs',
-    ],
+    files: ['**/*.ts', '**/*.tsx', '**/*.cts', '**/*.mts', '**/*.js', '**/*.jsx', '**/*.cjs', '**/*.mjs'],
     // Override or add rules here
     rules: {},
   },
